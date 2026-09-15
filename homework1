@@ -1,0 +1,155 @@
+1. 
+(a)
+
+• int
+• double
+• String
+• boolean
+
+(b) 
+
+• my_score — VALID
+• 3rdPlace — INVALID
+• class — INVALID
+• firstName — VALID
+
+(c) Exact output
+
+Total: 120
+done
+
+
+2. 
+
+(a) System.out.println(msg.length());
+输出：12
+
+(b) System.out.println(msg.trim());
+输出：Hello Java
+
+(c) System.out.println(msg.indexOf("Java"));
+输出：7
+
+(d) System.out.println(msg.substring(8));
+输出：ava
+
+(e) System.out.println(msg.toLowerCase());
+输出： hello java
+
+(f) System.out.println(msg.charAt(2));
+输出：e
+
+(g) System.out.println(msg.replace("Java", "Python"));
+输出： Hello Python
+
+(h) System.out.println(msg.trim().toUpperCase());
+输出：HELLO JAVA
+
+3.
+
+(a) Trace table
+
+Line | counter(global) | step(global) | step(local) | Output
+1 | 10 | 5 | — | —
+2 | 15 | 5 | — | —
+3 | 15 | 5 | 20 | —
+4 | 15 | 5 | 20 | run1: 15 20
+5 | 15 | 5 | — | —
+6 | 15 | 5 | 16 | —
+7 | 15 | 5 | 16 | run2: 15 16
+8 | 15 | 5 | — | —
+9 | 15 | 5 | — | main: 15 5
+
+OUTPUT：
+
+run1: 15 20
+run2: 15 16
+main: 15 5
+
+(b) 
+
+In run2(), local variable step is declared：
+
+int step = counter + 1;
+
+(c) 
+
+Advantages: Global variables can be directly accessed and shared by multiple methods without passing parameters. 
+
+Disadvantages: Any method can modify global variables, making it difficult for programs to track and debug.
+
+4. 
+
+public class ProductInfo {
+public static void main(String[] args) {
+int productId = 12345;
+double unitPrice = 49.99;
+char size = 'L';
+String stockCode = "A402";
+boolean available = true;
+   	System.out.print("Product " + productId + " costs $" + unitPrice);
+System.out.println(" and size is " + size + ".");
+System.out.println("Stock code: " + stockCode);
+System.out.println("Available: " + available);
+}
+}
+
+Expected output:
+
+Product 12345 costs $49.99 and size is L.
+Stock code: A402
+Available: true
+
+5. 
+
+public class CustomerRecord {
+public static void main(String[] args) {
+String customer = "Michael Jackson,mjackson@vcol.org,4500";
+
+    int firstComma = customer.indexOf(",");
+    int secondComma = customer.indexOf(",", firstComma + 1);
+    String name = customer.substring(0, firstComma);
+    String email = customer.substring(firstComma + 1, secondComma);
+    int atIndex = email.indexOf("@");
+    String domain = email.substring(atIndex + 1);
+    String salary = customer.substring(secondComma + 1);
+    String upperName = name.toUpperCase();
+    System.out.println("Name: " + name);
+    System.out.println("Email: " + email);
+    System.out.println("Domain: " + domain);
+    System.out.println("Salary: " + salary);
+    System.out.println("Upper case name: " + upperName);
+}
+
+}
+
+Expected output:
+
+Name: Michael Jackson
+Email: mjackson@vcol.org
+Domain: vcol.org
+Salary: 4500
+Upper case name: MICHAEL JACKSON
+
+6. Debugging and scope
+
+(a) 
+
+int total = total + 5;
+
+the total in total +5 is only a local variable which has not been declared in main
+
+(b)
+
+static void add() {
+total = total + 5;
+}
+
+
+OUTPUT：
+
+Total: 105
+
+(c) 
+
+Global variable can be used among the whole code, while the local variable could only be used in the function where it is declared.
